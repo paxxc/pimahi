@@ -4,8 +4,8 @@ set GEMINI_API_KEY=noquotationvalue
 set HTTP_PROXY=noquotationvalue
 set HTTPS_PROXY=noquotationvalue
 
-set NODE="path\node.exe"
-set TWINS="path\twins.js"
+set NODE="C:\Users\%USERNAME%\_change-to-path_\node.exe"
+set TWINS="C:\Users\%USERNAME%\_change-to-path_\twins.js"
 set CLI_TITLE=p1mah1
 
 
