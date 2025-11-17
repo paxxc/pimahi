@@ -50,7 +50,10 @@ if /I "%choice%"=="Y" (
         echo   "approvalMode": "yolo",
         echo   "ui": {
         echo     "hideBanner": true,
-        echo     "hideTips": true
+        echo     "hideTips": true,
+        echo     "accessibility": {
+        echo       "disableLoadingPhrases": true
+        echo     }
         echo   },
         echo   "security": {
         echo     "auth": {
