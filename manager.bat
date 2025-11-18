@@ -40,7 +40,7 @@ if "%size%"=="0" (
     echo Done.
 )
 
-echo Apply pimahi settings? (Y/N)
+echo Apply pimahi settings? (Y/N/S)
 set /p choice="> "
 
 if /I "%choice%"=="Y" (
@@ -50,10 +50,7 @@ if /I "%choice%"=="Y" (
         echo   "approvalMode": "yolo",
         echo   "ui": {
         echo     "hideBanner": true,
-        echo     "hideTips": true,
-        echo     "accessibility": {
-        echo       "disableLoadingPhrases": true
-        echo     }
+        echo     "hideTips": true
         echo   },
         echo   "security": {
         echo     "auth": {
@@ -68,19 +65,24 @@ if /I "%choice%"=="Y" (
     echo Config updated successfully.
     echo Launching...
 ) else (
-    echo Launching...
-    >"%jsonFile%" (
-        echo {
-        echo   "security": {
-        echo     "auth": {
-        echo       "selectedType": "gemini-api-key"
-        echo     }
-        echo   }
-        echo }
+    if /I "%choice%"=="S" (
+	echo Launching...
+	goto skipchoice
+    ) else (
+    	echo Launching...
+    	>"%jsonFile%" (
+        	echo {
+        	echo   "security": {
+        	echo     "auth": {
+        	echo       "selectedType": "gemini-api-key"
+        	echo     }
+        	echo   }
+        	echo }
+    	)
+    	echo Minimal config written.
     )
-    echo Minimal config written.
 )
-
+:skipchoice
 endlocal
 
 %NODE% %TWINS%
