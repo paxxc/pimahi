@@ -40,7 +40,7 @@ if "%size%"=="0" (
     echo Done.
 )
 
-echo Apply pimahi settings? (Y/N/S)
+echo Adjust settings? (Y/N/S)
 set /p choice="> "
 
 if /I "%choice%"=="Y" (
